@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About – SaniCore Fitness Center</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── About page enhancements ─────────────────── */
+
+    /* HERO */
+    .about-hero {
+      min-height: 520px;
+      position: relative;
+      overflow: hidden;
+      padding: 130px 0 60px;
+    }
+    .about-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80');
+      background-size: cover; background-position: center 35%;
+    }
+    .about-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,10,0.93) 50%, rgba(224,16,16,0.15) 100%);
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      max-width: 680px;
+    }
+    .about-hero h1 {
+      font-family: var(--fd);
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
+      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: .02em;
+    }
+    .about-hero h1 span { color: var(--red); }
+    .about-hero p {
+      color: var(--grey-lt);
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .about-hero-stats {
+      display: flex; gap: 3rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 2rem;
+    }
+    .ahs { text-align: left; }
+    .ahs .num {
+      font-family: var(--fd);
+      font-size: 2.8rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .ahs .lbl {
+      font-family: var(--fh);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: .2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: .5rem;
+      font-family: var(--fh); font-size: .72rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--grey); margin-bottom: 2rem;
+    }
+    .breadcrumb a { color: var(--red); }
+    .breadcrumb .sep { opacity: .4; }
+
+    /* STORY SECTION */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .story-text .lead {
+      font-size: 1.18rem;
+      color: var(--offwhite);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+    .story-text p {
+      color: var(--grey);
+      font-size: .93rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .story-img-stack { position: relative; }
+    .story-img-main {
+      width: 100%; height: 480px;
+      object-fit: cover;
+      border-radius: var(--rl);
+    }
+    .story-img-accent {
+      position: absolute;
+      bottom: -2rem; left: -2rem;
+      width: 48%; height: 200px;
+      object-fit: cover;
+      border-radius: var(--rl);
+      border: 4px solid var(--black);
+    }
+    .story-badge {
+      position: absolute;
+      top: 1.5rem; right: -1.5rem;
+      background: var(--red);
+      color: var(--white);
+      padding: 1.4rem 1.8rem;
+      border-radius: var(--rl);
+      text-align: center;
+      box-shadow: var(--sh-red);
+    }
+    .story-badge .big { font-family: var(--fd); font-size: 2.6rem; line-height: 1; }
+    .story-badge .sm  { font-family: var(--fh); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; }
+
+    /* TIMELINE */
+    .timeline { position: relative; max-width: 720px; margin: 0 auto; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--red), transparent);
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 44px 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+    .tl-item:nth-child(even) .tl-text { grid-column: 3; }
+    .tl-item:nth-child(even) .tl-spacer { grid-column: 2; }
+    .tl-item:nth-child(even) .tl-empty { grid-column: 1; }
+    .tl-dot {
+      width: 44px; height: 44px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fd); font-size: .95rem; color: var(--white);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(224,16,16,.2);
+    }
+    .tl-text {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      padding: 1.5rem;
+    }
+    .tl-text h4 {
+      font-family: var(--fh); font-size: 1rem;
+      color: var(--red); letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .tl-text p { font-size: .85rem; color: var(--grey); line-height: 1.7; }
+
+    /* MISSION + VISION */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .mv-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red);
+    }
+    .mv-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .mv-card h3 {
+      font-size: 1.6rem; color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .mv-card p { color: var(--grey); line-height: 1.85; font-size: .93rem; }
+    .mv-card .watermark {
+      position: absolute;
+      bottom: -1rem; right: -0.5rem;
+      font-family: var(--fd);
+      font-size: 8rem;
+      color: rgba(224,16,16,.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* VALUES STRIP */
+    .values-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .value-item {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      padding: 2rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: all var(--ease);
+    }
+    .value-item:hover { border-color: var(--bdr-red); transform: translateY(-3px); }
+    .val-icon { font-size: 2rem; flex-shrink: 0; }
+    .val-body h4 { font-size: 1rem; color: var(--white); margin-bottom: .4rem; }
+    .val-body p  { font-size: .83rem; color: var(--grey); line-height: 1.65; }
+
+    /* WHO WE SERVE */
+    .audience-grid-v2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .aud-card-v2 {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .aud-card-v2::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform .3s ease;
+    }
+    .aud-card-v2:hover { transform: translateY(-5px); border-color: var(--bdr-red); }
+    .aud-card-v2:hover::after { transform: scaleX(1); }
+    .aud-emoji { font-size: 2.8rem; margin-bottom: 1rem; }
+    .aud-card-v2 h4 { font-size: 1.1rem; color: var(--white); margin-bottom: .6rem; }
+    .aud-card-v2 p  { font-size: .85rem; color: var(--grey); line-height: 1.7; }
+
+    /* FACILITY */
+    .facility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .facility-list { list-style: none; margin-top: 1.5rem; }
+    .facility-list li {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem; color: var(--offwhite);
+    }
+    .facility-list li:last-child { border-bottom: none; }
+    .fac-dot {
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* TRAINERS */
+    .trainers-grid-v2 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .trainer-card-v2 {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: var(--rl);
+      overflow: hidden;
+      transition: all var(--ease);
+    }
+    .trainer-card-v2:hover { border-color: var(--bdr-red); transform: translateY(-5px); box-shadow: var(--sh-red); }
+    .tc-img {
+      height: 240px; overflow: hidden;
+      position: relative;
+    }
+    .tc-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s ease; }
+    .trainer-card-v2:hover .tc-img img { transform: scale(1.08); }
+    .tc-body { padding: 1.5rem; }
+    .tc-body h4 { font-size: 1.1rem; color: var(--white); margin-bottom: .2rem; }
+    .tc-role {
+      font-size: .7rem; color: var(--red);
+      letter-spacing: .14em; text-transform: uppercase;
+      font-family: var(--fh); font-weight: 600;
+      margin-bottom: .7rem;
+    }
+    .tc-bio { font-size: .82rem; color: var(--grey); line-height: 1.65; }
+    .tc-certs {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+      margin-top: 1rem;
+    }
+    .tc-cert {
+      background: rgba(224,16,16,.12);
+      border: 1px solid rgba(224,16,16,.25);
+      color: var(--red);
+      font-size: .65rem; letter-spacing: .08em;
+      padding: .25rem .6rem;
+      border-radius: 2px;
+      font-family: var(--fh); font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* CTA SECTION */
+    .about-cta {
+      background: linear-gradient(135deg, var(--red) 0%, var(--red-dk) 100%);
+      border-radius: var(--rl);
+      padding: 4rem;
+      text-align: center;
+    }
+    .about-cta h2 { font-family: var(--fd); font-size: clamp(2rem,4vw,3.5rem); color: var(--white); margin-bottom: .75rem; }
+    .about-cta p { color: rgba(255,255,255,.8); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .story-grid, .facility-grid, .mv-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .trainers-grid-v2 { grid-template-columns: 1fr 1fr; }
+      .audience-grid-v2 { grid-template-columns: 1fr 1fr; }
+      .values-strip { grid-template-columns: 1fr; }
+      .timeline::before { display: none; }
+      .tl-item { grid-template-columns: 44px 1fr; }
+      .tl-item:nth-child(even) .tl-text { grid-column: 2; }
+      .tl-item:nth-child(even) .tl-empty { display: none; }
+      .about-hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .story-img-accent { display: none; }
+      .story-badge { right: 1rem; top: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .trainers-grid-v2 { grid-template-columns: 1fr; }
+      .audience-grid-v2 { grid-template-columns: 1fr; }
+      .about-cta { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.svg" alt="SaniCore Logo"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      
+      <li><a href="contact.html" class="btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mob-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">Services</a>
+  <a href="shop.html">Shop</a>
+  <a href="membership.html">Membership</a>
+  
+  <a href="contact.html" class="mob-cta">Contact Us</a>
+</nav>
+
+<main class="page-content">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div class="about-hero-overlay"></div>
+    <div class="container"><div class="about-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>About Us</span></div>
+      <h1 class="reveal">Forged in<br/><span>Negombo.</span><br/>Built for You.</h1>
+      <p class="reveal">More than a gym — SaniCore is a movement. Discover the story, mission, and people behind Sri Lanka's most trusted fitness centre.</p>
+      <div class="about-hero-stats reveal">
+        <div class="ahs"><div class="num">2013</div><div class="lbl">Founded</div></div>
+        <div class="ahs"><div class="num">5K+</div><div class="lbl">Members Transformed</div></div>
+        <div class="ahs"><div class="num">12K</div><div class="lbl">Sq Ft of Training Space</div></div>
+        <div class="ahs"><div class="num">30+</div><div class="lbl">Expert Coaches</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ══════════ OUR STORY ══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text reveal-left">
+          <span class="section-label">Our Story</span>
+          <h2>More Than <span style="color:var(--red)">Iron &amp; Sweat</span></h2>
+          <div class="red-line"></div>
+          <p class="lead">SaniCore was born from a simple belief: that every person in Negombo deserves world-class fitness support — not just those who already look the part.</p>
+          <p>Founded in 2013 with a modest 3,000 sq ft space and a handful of barbells, we've grown into a 12,000 sq ft training facility that Negombo is proud to call its own. What hasn't changed is our obsession with results and people.</p>
+          <p>Over 5,000 members have walked through our doors. We've watched beginners become athletes, athletes become champions, and everyone in between rediscover confidence they didn't know they had.</p>
+          <p>Today, SaniCore stands as Sri Lanka's most trusted fitness destination — recognised for expert coaching, premium equipment, and a culture that genuinely lifts people up.</p>
+        </div>
+        <div class="story-img-stack reveal-right">
+          <img class="story-img-main" src="Images\about\photo-1540497077202-7c8a3999166f.jfif" alt="SaniCore gym floor" loading="lazy"/>
+          <img class="story-img-accent" src="Images\about\photo-1571902943202-507ec2618e8f.jfif" alt="SaniCore training" loading="lazy"/>
+          <div class="story-badge">
+            <div class="big">12+</div>
+            <div class="sm">Years Strong</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TIMELINE ══════════ -->
+  <section class="section bg-dark2 stripe">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="section-label">Our Journey</span>
+        <h2>From Humble <span style="color:var(--red)">Beginnings</span></h2>
+        <div class="red-line"></div>
+        <p>Every great institution has a story. Here's ours.</p>
+      </div>
+      <div class="timeline" style="margin-top:3rem">
+
+        <div class="tl-item reveal">
+          <div class="tl-text">
+            <h4>2013 — The Beginning</h4>
+            <p>SaniCore opens its doors in Negombo with 3,000 sq ft, basic equipment, and an unwavering belief that fitness transforms lives.</p>
+          </div>
+          <div class="tl-dot">13</div>
+          <div></div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div></div>
+          <div class="tl-dot">16</div>
+          <div class="tl-text">
+            <h4>2016 — Group Studios Launch</h4>
+            <p>We added four dedicated group studios — cycling, yoga, HIIT, and boxing — tripling our class capacity and membership base.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-text">
+            <h4>2019 — Expansion to 12,000 sq ft</h4>
+            <p>Major facility expansion, premium equipment upgrade, and the launch of our nutrition bar and recovery zone.</p>
+          </div>
+          <div class="tl-dot">19</div>
+          <div></div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div></div>
+          <div class="tl-dot">22</div>
+          <div class="tl-text">
+            <h4>2022 — 5,000 Members Milestone</h4>
+            <p>A landmark year: 5,000 members strong, ranked Negombo's #1 fitness centre, and recognised nationally for coaching excellence.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-text">
+            <h4>2025 — 24/7 Access &amp; Smart Training</h4>
+            <p>Launched round-the-clock keycard access and digital progress tracking, putting member results first around the clock.</p>
+          </div>
+          <div class="tl-dot">25</div>
+          <div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MISSION & VISION ══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="section-label">What Drives Us</span>
+        <h2>Mission &amp; <span style="color:var(--red)">Vision</span></h2>
+        <div class="red-line"></div>
+      </div>
+      <div class="mv-grid" style="margin-top:3rem">
+        <div class="mv-card reveal-left">
+          <span class="card-icon">🎯</span>
+          <h3>Our Mission</h3>
+          <p>To empower every individual — regardless of starting point — with the tools, guidance, and environment to build strength, improve health, and elevate quality of life. We deliver expert coaching, premium facilities, and a motivating community that makes fitness a sustainable lifestyle, not a temporary fix.</p>
+          <div class="watermark">M</div>
+        </div>
+        <div class="mv-card reveal-right">
+          <span class="card-icon">🔭</span>
+          <h3>Our Vision</h3>
+          <p>To be Sri Lanka's leading fitness and wellness destination — where science-backed training, nutritional excellence, and mental resilience converge. We envision a future where SaniCore is synonymous with transformation, not just for athletes, but for anyone ready to commit to their best self.</p>
+          <div class="watermark">V</div>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="values-strip" style="margin-top:2rem">
+        <div class="value-item reveal">
+          <span class="val-icon">💪</span>
+          <div class="val-body">
+            <h4>Strength First</h4>
+            <p>We build physical foundations that support every aspect of health, performance, and daily life.</p>
+          </div>
+        </div>
+        <div class="value-item reveal">
+          <span class="val-icon">🤝</span>
+          <div class="val-body">
+            <h4>Community</h4>
+            <p>An inclusive gym culture where members motivate each other. No one trains alone at SaniCore.</p>
+          </div>
+        </div>
+        <div class="value-item reveal">
+          <span class="val-icon">📚</span>
+          <div class="val-body">
+            <h4>Education</h4>
+            <p>Knowledge-driven training — our coaches teach the why behind every rep, set, and meal plan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHO WE SERVE ══════════ -->
+  <section class="section bg-dark2 stripe">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="section-label">Who We Serve</span>
+        <h2>Fitness for <span style="color:var(--red)">Everyone</span></h2>
+        <div class="red-line"></div>
+        <p>Whether you're brand new or battle-hardened, SaniCore has a place for you.</p>
+      </div>
+      <div class="audience-grid-v2" style="margin-top:3rem">
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">🌱</div>
+          <h4>Beginners</h4>
+          <p>Our beginner onboarding programme eases you in with confidence-building workouts and patient, judgment-free coaching.</p>
+        </div>
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">🎓</div>
+          <h4>Students</h4>
+          <p>Affordable student memberships, flexible hours, and stress-relief classes designed around academic schedules.</p>
+        </div>
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">🏆</div>
+          <h4>Athletes</h4>
+          <p>Advanced periodisation, sports-specific training, and performance nutrition consulting for competitive athletes.</p>
+        </div>
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">👩‍💼</div>
+          <h4>Professionals</h4>
+          <p>Lunchtime sessions, early morning access, and express 30-minute HIIT circuits for the busiest schedules.</p>
+        </div>
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">👴</div>
+          <h4>Seniors</h4>
+          <p>Low-impact classes, mobility training, and gentle strength programmes designed specifically for 50+ members.</p>
+        </div>
+        <div class="aud-card-v2 reveal">
+          <div class="aud-emoji">🤰</div>
+          <h4>Pre / Postnatal</h4>
+          <p>Safe, expert-guided prenatal and postnatal fitness with certified specialist coaches every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FACILITY ══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="facility-grid">
+        <div class="reveal-left">
+          <span class="section-label">Our Facility</span>
+          <h2>12,000 sq ft of <span style="color:var(--red)">Pure Performance</span></h2>
+          <div class="red-line"></div>
+          <p style="color:var(--grey);line-height:1.8;margin-bottom:1.5rem">Our facility is divided into dedicated training zones, each designed with purpose and precision for every type of athlete.</p>
+          <ul class="facility-list">
+            <li><span class="fac-dot"></span>Free Weights Zone — 200+ dumbbells, barbells &amp; kettlebells</li>
+            <li><span class="fac-dot"></span>Cardio Floor — 40+ treadmills, bikes, rowers &amp; ellipticals</li>
+            <li><span class="fac-dot"></span>Functional Training — rigs, sleds, TRX, battle ropes</li>
+            <li><span class="fac-dot"></span>4 Group Studios — cycling, yoga, HIIT, boxing</li>
+            <li><span class="fac-dot"></span>Recovery Zone — sauna, ice bath, foam rolling</li>
+            <li><span class="fac-dot"></span>Nutrition Bar — protein shakes, smoothies &amp; supplements</li>
+            <li><span class="fac-dot"></span>24/7 Keycard Access — train on your schedule, always</li>
+          </ul>
+        </div>
+        <div class="story-img-stack reveal-right">
+          <img class="story-img-main" src="Images\about\photo-1534438327276-14e5300c3a48.jfif" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MEET THE TEAM ══════════ -->
+  <section class="section bg-dark2 stripe">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="section-label">Meet the Team</span>
+        <h2>Expert <span style="color:var(--red)">Trainers</span></h2>
+        <div class="red-line"></div>
+        <p>Our certified coaches bring passion, experience, and results to every single session.</p>
+      </div>
+      <div class="trainers-grid-v2" style="margin-top:3rem">
+
+        <div class="trainer-card-v2 reveal">
+          <div class="tc-img"><img src="Images\home\photo-1622519407650-3df9883f76a5.jfif" loading="lazy"/></div>
+          <div class="tc-body">
+            <h4>Marcus Reid</h4>
+            <div class="tc-role">Head Coach &amp; Founder</div>
+            <p class="tc-bio">15 years in strength &amp; conditioning. Former national powerlifting champion. Builds champions from the ground up.</p>
+            <div class="tc-certs"><span class="tc-cert">CSCS</span><span class="tc-cert">Powerlifting</span></div>
+          </div>
+        </div>
+
+        <div class="trainer-card-v2 reveal">
+          <div class="tc-img"><img src="Images\about\photo-1518611012118-696072aa579a.jfif" alt="Ayesha Patel" loading="lazy"/></div>
+          <div class="tc-body">
+            <h4>Ayesha Patel</h4>
+            <div class="tc-role">Yoga &amp; Mobility Specialist</div>
+            <p class="tc-bio">Specialises in functional mobility, injury prevention, and mindful movement for all fitness levels.</p>
+            <div class="tc-certs"><span class="tc-cert">RYT-500</span><span class="tc-cert">Mobility</span></div>
+          </div>
+        </div>
+
+        <div class="trainer-card-v2 reveal">
+          <div class="tc-img"><img src="Images\about\fitness-trainer-smiling-in-gym-with-dumbbells-diverse-trainer-health-and-wellness-promotion-professional-athlete-strength-t.jpg" loading="lazy"/></div>
+          <div class="tc-body">
+            <h4>Chris Nolan</h4>
+            <div class="tc-role">HIIT &amp; Boxing Coach</div>
+            <p class="tc-bio">Ex-professional boxer. Creates explosive conditioning programmes that challenge and transform at every level.</p>
+            <div class="tc-certs"><span class="tc-cert">ACE</span><span class="tc-cert">Boxing Pro</span></div>
+          </div>
+        </div>
+
+        <div class="trainer-card-v2 reveal">
+          <div class="tc-img"><img src="Images\about\nutrition-coach-demonstrating-meal-prep-with-fresh-ingredients-in-a-fitness-environment-f035ebba-cf55-47d2-8389-69caa782fc.jpg" alt="Priya Senarath" loading="lazy"/></div>
+          <div class="tc-body">
+            <h4>Priya Senarath</h4>
+            <div class="tc-role">Nutrition &amp; Wellness Coach</div>
+            <p class="tc-bio">Registered dietitian developing personalised nutrition plans for weight loss, muscle gain, and peak performance.</p>
+            <div class="tc-certs"><span class="tc-cert">RD</span><span class="tc-cert">Sports Nutrition</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="about-cta reveal">
+        <h2>Start Your Transformation Today</h2>
+        <p>Book a free consultation with one of our expert trainers and take the first step toward your best self.</p>
+        <div class="cta-btns">
+          <a href="contact.html" class="btn btn-white">Book a Free Consultation</a>
+          <a href="membership.html" class="btn btn-white-outline">View Memberships</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="logo.svg" alt="SaniCore"/>
+        </div>
+        <p>Train your core, transform your life. Sri Lanka's premier fitness destination since 2013.</p>
+        <div class="footer-social">
+          <a href="#" class="soc-link"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="soc-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="var(--dark2)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--dark2)" stroke-width="2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="soc-link"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--dark2)"/></svg></a>
+          <a href="#" class="soc-link"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="membership.html">Membership</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Personal Training</a></li><li><a href="services.html">Group Classes</a></li><li><a href="services.html">Cardio Zone</a></li><li><a href="services.html">Strength Training</a></li><li><a href="shop.html">Supplement Shop</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="contact.html">📍 42 Fitness Ave, Negombo</a></li><li><a href="tel:+94112345678">📞 +94 11 234 5678</a></li><li><a href="mailto:info@sanicore.lk">✉️ info@sanicore.lk</a></li><li>Mon–Fri: 5am – 11pm</li><li>Sat–Sun: 6am – 9pm</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 <span>SaniCore Fitness Center</span>. All rights reserved.</p><p>Designed with ❤️ for champions.</p></div>
+  </div>
+</footer>
+
+<button class="btt" aria-label="Back to top">↑</button>
+<script src="main.js"></script>
+</body>
+</html>

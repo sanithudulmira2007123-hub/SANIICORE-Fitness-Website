@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Shop – SaniCore Fitness Center</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.svg" alt="SaniCore Logo"/></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="shop.html" class="active">Shop</a></li><li><a href="membership.html">Membership</a></li><li><a href="contact.html" class="btn-nav">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mob-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="shop.html" class="active">Shop</a><a href="membership.html">Membership</a><a href="contact.html" class="mob-cta">Contact Us</a>
+</nav>
+
+<main class="page-content">
+
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=1600&q=80')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container"><div class="page-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="cur">Shop</span></div>
+      <h1>Sani<span style="color:var(--red)">Core</span> Shop</h1>
+      <p>Premium supplements, gym equipment and accessories to fuel your performance.</p>
+    </div></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Category Tabs -->
+      <div class="shop-nav">
+        <button class="shop-tab active" data-cat="all">All Products</button>
+        <button class="shop-tab" data-cat="supplements">💊 Supplements</button>
+        <button class="shop-tab" data-cat="equipment">🏋️ Equipment</button>
+        <button class="shop-tab" data-cat="accessories">🎽 Accessories</button>
+      </div>
+
+      <!-- SUPPLEMENTS -->
+      <div class="shop-cat" id="supplements">
+        <h3 class="shop-cat-title">💊 <span class="ac">Supplements</span></h3>
+        <div class="products-grid">
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\SUPPLIMENTS\whey-pro-trustified-primary-isolate-concenterate-blend-5954428.webp" alt="Whey Protein" loading="lazy"/><span class="product-badge">Best Seller</span></div><div class="product-body"><h4>Whey Protein Pro</h4><p>25g protein per serving. Chocolate, vanilla &amp; strawberry. 2kg tub — 66 servings.</p><div class="product-footer"><span class="product-price">$49</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\home\71NilkWyPlL.jpg" alt="Pre-Workout" loading="lazy"/><span class="product-badge">Popular</span></div><div class="product-body"><h4>Core Pre-Workout</h4><p>Explosive energy formula with beta-alanine, caffeine (200mg), and L-citrulline. 30 servings.</p><div class="product-footer"><span class="product-price">$39</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\SUPPLIMENTS\6148jh4i0XL.jpg" alt="Vitamins" loading="lazy"/></div><div class="product-body"><h4>Daily Multivitamin</h4><p>Complete A–Z vitamin and mineral complex with Vitamin D3, Omega-3 &amp; Zinc. 90 capsules.</p><div class="product-footer"><span class="product-price">$22</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\SUPPLIMENTS\muscletech-int-amino-build-bcaa.webp" alt="BCAA" loading="lazy"/><span class="product-badge">New</span></div><div class="product-body"><h4>BCAA Recovery Blend</h4><p>2:1:1 BCAA ratio with electrolytes. Reduces muscle soreness. Watermelon &amp; citrus.</p><div class="product-footer"><span class="product-price">$29</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\SUPPLIMENTS\DY_CREATINEmonohydrate_2025_010000_f16c033e-b37f-4d41-aeca-d3728d7a3230.webp" alt="Creatine" loading="lazy"/></div><div class="product-body"><h4>Creatine Monohydrate</h4><p>Micronised creatine monohydrate, 5g per serving. Unflavoured. 60 servings per container.</p><div class="product-footer"><span class="product-price">$19</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\SUPPLIMENTS\Dark-Nutrition-Omega-3-Fish-Oil-supplement-bottle-_1.webp" loading="lazy"/></div><div class="product-body"><h4>Omega-3 Fish Oil</h4><p>High-potency EPA/DHA for heart, brain &amp; joint health. Lemon-flavoured softgels. 120 capsules.</p><div class="product-footer"><span class="product-price">$18</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+        </div>
+      </div>
+  
+
+      <!-- EQUIPMENT -->
+      <div class="shop-cat" id="equipment">
+        <br>
+        <h3 class="shop-cat-title">🏋️ <span class="ac">Gym Equipment</span></h3>
+        <div class="products-grid">
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\LZX-D202X2.webp" alt="Dumbbells" loading="lazy"/><span class="product-badge">Top Rated</span></div><div class="product-body"><h4>Adjustable Dumbbells</h4><p>5–50 lb per handle. Quick-adjust dial mechanism. Replaces 15 pairs. Space-saving design.</p><div class="product-footer"><span class="product-price">$189</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\81s2+zgJcXL._AC_UF1000,1000_QL80_.jpg" alt="Resistance Bands" loading="lazy"/><span class="product-badge">Popular</span></div><div class="product-body"><h4>Resistance Band Set</h4><p>5-band set: 5–100 lb resistance levels. Includes ankle straps, door anchor, and carry bag.</p><div class="product-footer"><span class="product-price">$34</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\92253-3_Ibf_pull_up_bar.webp" alt="Pull Up Bar" loading="lazy"/></div><div class="product-body"><h4>Doorframe Pull-Up Bar</h4><p>No-screw installation. Supports up to 150kg. Multi-grip positions for pull-ups &amp; chin-ups.</p><div class="product-footer"><span class="product-price">$45</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\iron-kettlebell-500x500.webp" alt="Kettlebell" loading="lazy"/><span class="product-badge">New</span></div><div class="product-body"><h4>Cast Iron Kettlebell</h4><p>Premium cast iron with vinyl coating. Available 8kg, 12kg, 16kg, 20kg, 24kg. Single unit.</p><div class="product-footer"><span class="product-price">$28</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\12-x-Muscle-Motion-Yoga-Mat-PACKAGE-Yoga-Mats-YM100112.jpg" alt="Yoga Mat" loading="lazy"/></div><div class="product-body"><h4>Premium Yoga Mat</h4><p>6mm non-slip natural rubber. Extra wide 72". Ideal for yoga, pilates &amp; floor work.</p><div class="product-footer"><span class="product-price">$42</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\GYM EQUIQMENTS\71k3hT3rqoL._AC_UF1000,1000_QL80_.jpg" alt="Jump Rope" loading="lazy"/></div><div class="product-body"><h4>Speed Jump Rope</h4><p>Adjustable steel cable with aluminium handles. Ball bearings for smooth rotation. 5mm cable.</p><div class="product-footer"><span class="product-price">$16</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+        </div>
+      </div>
+
+      <!-- ACCESSORIES -->
+      <div class="shop-cat" id="accessories">
+        <br>
+        <h3 class="shop-cat-title">🎽 <span class="ac">Accessories</span></h3>
+        <div class="products-grid">
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\069c37872e6b60a23c7ef94efb039310.jpg" alt="Gym Gloves" loading="lazy"/><span class="product-badge">Best Seller</span></div><div class="product-body"><h4>Training Gloves</h4><p>Padded palm protection with wrist wrap support. Breathable mesh back. Sizes S–XL.</p><div class="product-footer"><span class="product-price">$24</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\photo-1523362628745-0c100150b504.jfif" alt="Water Bottle" loading="lazy"/><span class="product-badge">Popular</span></div><div class="product-body"><h4>SaniCore Water Bottle</h4><p>1L BPA-free Tritan bottle with time markers, leak-proof lid, and SaniCore branding. 4 colours.</p><div class="product-footer"><span class="product-price">$18</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\BFA_x_Studio_1x1_Small_file_size-346.webp" alt="Gym Bag" loading="lazy"/><span class="product-badge">New</span></div><div class="product-body"><h4>SaniCore Pro Gym Bag</h4><p>40L capacity, waterproof base, separate shoe compartment, hidden pocket. Black &amp; red.</p><div class="product-footer"><span class="product-price">$65</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\lever-belts_large.webp" alt="Lifting Belt" loading="lazy"/></div><div class="product-body"><h4>Weightlifting Belt</h4><p>4-inch genuine leather with double prong buckle. Lumbar support for heavy lifts. S–XXL.</p><div class="product-footer"><span class="product-price">$55</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\Sfa78db73140748fb9c051915a2a96aabb.jpg_720x720q80.jpg" alt="Shaker Bottle" loading="lazy"/></div><div class="product-body"><h4>Protein Shaker</h4><p>700ml blender bottle with stainless steel mixing ball. Leak-proof. Perfect for shakes &amp; pre-workout.</p><div class="product-footer"><span class="product-price">$12</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+          <div class="product-card reveal"><div class="product-img"><img src="Images\shop\ACCESSORIES\1_69438336-f163-42e1-8eac-1007f4c4f47a.webp" alt="Knee Sleeves" loading="lazy"/></div><div class="product-body"><h4>Compression Knee Sleeves</h4><p>7mm neoprene. IPF-approved. Provides warmth, compression &amp; joint support for heavy lifts.</p><div class="product-footer"><span class="product-price">$38</span><button class="btn btn-primary btn-sm add-to-cart">Buy Now</button></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container"><div class="cta-content reveal">
+      <h2>Members Get 15% Off</h2>
+      <p>All SaniCore members receive an automatic 15% discount on every shop purchase. Join today to start saving.</p>
+      <div class="cta-btns"><a href="membership.html" class="btn btn-white">Get a Membership</a><a href="contact.html" class="btn btn-white-outline">Ask a Question</a></div>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><img src="logo.svg" alt="SaniCore"/></div><p>Train your core, transform your life. Sri Lanka's premier fitness destination since 2013.</p><div class="footer-social"><a href="#" class="soc-link"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="#" class="soc-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="var(--dark2)"/></svg></a><a href="#" class="soc-link"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--dark2)"/></svg></a></div></div>
+      <div class="footer-col"><h4>Shop Categories</h4><ul class="footer-links"><li><a href="#supplements">Supplements</a></li><li><a href="#equipment">Equipment</a></li><li><a href="#accessories">Accessories</a></li></ul></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="membership.html">Membership</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="contact.html">📍 42 Fitness Ave, Negombo</a></li><li><a href="tel:+94112345678">📞 +94 11 234 5678</a></li><li><a href="mailto:info@sanicore.lk">✉️ info@sanicore.lk</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 <span>SaniCore Fitness Center</span>. All rights reserved.</p><p>Designed with ❤️ for champions.</p></div>
+  </div>
+</footer>
+<button class="btt" aria-label="Back to top">↑</button>
+<div class="cart-toast"></div>
+<script src="main.js"></script>
+</body>
+</html>
